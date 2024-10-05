@@ -44,7 +44,11 @@ namespace hamster_paint
             if (e.Button == MouseButtons.Left)
             {
                 if (canvas != null)
+                {
                     pre.Push(canvas.Clone());
+                    nex.Clear();
+                }
+                    
                 isDrawing = true;
                 double scaleX = (double)canvas.Width / pictureBox1.Width;
                 double scaleY = (double)canvas.Height / pictureBox1.Height;
