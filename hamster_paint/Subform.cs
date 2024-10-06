@@ -47,5 +47,10 @@ namespace hamster_paint
             Console.WriteLine(Data.R + " " + Data.G + " " + Data.B);
             pictureBox1.Image = BitmapConverter.ToBitmap(new Mat(new OpenCvSharp.Size(pictureBox1.Width, pictureBox1.Height), MatType.CV_8UC3, Scalar.FromRgb(Data.R, Data.G, Data.B)));
         }
+        private void buttonSelectColor_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }

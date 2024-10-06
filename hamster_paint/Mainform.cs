@@ -78,7 +78,7 @@ namespace hamster_paint
                 switch (drawingType)
                 {
                     case 0:
-                        Cv2.Line(canvas, previousPoint, currentPoint, Scalar.Black, 2);
+                        Cv2.Line(canvas, previousPoint, currentPoint, MyScalar, 2);
                         previousPoint = currentPoint;
                         break;
                     case 1:
@@ -116,7 +116,7 @@ namespace hamster_paint
                 switch (drawingType)
                 {
                     case 0:
-                        Cv2.Line(canvas, previousPoint, currentPoint, Scalar.Black, 2);
+                        Cv2.Line(canvas, previousPoint, currentPoint, MyScalar, 2);
                         previousPoint = currentPoint;
                         break;
                     case 1:
@@ -174,11 +174,11 @@ namespace hamster_paint
             int centerY = (start.Y + end.Y) / 2;
             int axisX = Math.Abs(start.X - end.X) / 2;
             int axisY = Math.Abs(start.Y - end.Y) / 2;
-            Cv2.Ellipse(img, new OpenCvSharp.Point(centerX, centerY), new OpenCvSharp.Size(axisX, axisY), 0, 0, 360, Scalar.Black, 2);
+            Cv2.Ellipse(img, new OpenCvSharp.Point(centerX, centerY), new OpenCvSharp.Size(axisX, axisY), 0, 0, 360, MyScalar, 2);
         }
         private void DrawRectangle(Mat img, OpenCvSharp.Point start, OpenCvSharp.Point end)
         {
-            Cv2.Rectangle(img, start, end, Scalar.Black, 2, LineTypes.Link8, 0);
+            Cv2.Rectangle(img, start, end, MyScalar, 2, LineTypes.Link8, 0);
         }
         private readonly Dictionary<String, int> TypeToInt = new Dictionary<String, int>
         {
@@ -259,9 +259,12 @@ namespace hamster_paint
             Form2 f2 = new Form2();
             if (f2.ShowDialog() == DialogResult.OK)
             {
+                
                 colorData = f2.Data;
+                Console.WriteLine(colorData.R+" "+colorData.G+" "+colorData.B);
             }
-            Scalar MyScalar = Scalar.FromRgb(colorData.R, colorData.G, colorData.B);
+            MyScalar = Scalar.FromRgb(colorData.R, colorData.G, colorData.B);
+            pictureBox2.Image=BitmapConverter.ToBitmap(new Mat(new OpenCvSharp.Size(pictureBox2.Width, pictureBox2.Height), MatType.CV_8UC3, Scalar.FromRgb(colorData.R, colorData.G, colorData.B)));
         }
     }
 }
