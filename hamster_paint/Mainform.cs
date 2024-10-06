@@ -15,7 +15,7 @@ using OpenCvSharp.Dnn;
 
 namespace hamster_paint
 {
-    public partial class Form1 : Form
+    public partial class Mainform : Form
     {
         private Stack<Mat> pre=new Stack<Mat>();
         private Stack<Mat> nex = new Stack<Mat>();
@@ -26,17 +26,21 @@ namespace hamster_paint
         private bool isDrawing = false;
         private int drawingType = 0;
         private int zoomstep = 30;
+        ColorData colorData=new ColorData(255,255,255);
+        Scalar MyScalar = Scalar.FromRgb(0, 0, 0);
         private OpenCvSharp.Point dragStartPoint;
-        public Form1()
+        public Mainform()
         {
             InitializeComponent();
-            canvas = new Mat(new OpenCvSharp.Size(pictureBox1.Width, pictureBox1.Height), MatType.CV_8UC3, Scalar.White);
+            canvas = new Mat(new OpenCvSharp.Size(pictureBox1.Width, pictureBox1.Height), MatType.CV_8UC3, Scalar.FromRgb(255,255,255));
             tempCanvas = canvas.Clone();
             pictureBox1.Image = BitmapConverter.ToBitmap(canvas);
+            pictureBox2.Image = BitmapConverter.ToBitmap(new Mat(new OpenCvSharp.Size(pictureBox2.Width, pictureBox2.Height), MatType.CV_8UC3, Scalar.FromRgb(255, 255, 255)));
 
         }
-
         
+
+
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -248,6 +252,16 @@ namespace hamster_paint
             }
 
             pictureBox1.Image = BitmapConverter.ToBitmap(canvas);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            if (f2.ShowDialog() == DialogResult.OK)
+            {
+                colorData = f2.Data;
+            }
+            Scalar MyScalar = Scalar.FromRgb(colorData.R, colorData.G, colorData.B);
         }
     }
 }

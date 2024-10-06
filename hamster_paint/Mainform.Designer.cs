@@ -1,6 +1,6 @@
 ﻿namespace hamster_paint
 {
-    partial class Form1
+    partial class Mainform
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -36,7 +36,11 @@
             this.prebtn = new System.Windows.Forms.Button();
             this.nexbtn = new System.Windows.Forms.Button();
             this.openbtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -55,7 +59,7 @@
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(12, 12);
+            this.Save.Location = new System.Drawing.Point(0, 0);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 40);
             this.Save.TabIndex = 1;
@@ -66,7 +70,7 @@
             // circle
             // 
             this.circle.AutoSize = true;
-            this.circle.Location = new System.Drawing.Point(469, 21);
+            this.circle.Location = new System.Drawing.Point(389, 9);
             this.circle.Name = "circle";
             this.circle.Size = new System.Drawing.Size(73, 22);
             this.circle.TabIndex = 2;
@@ -78,7 +82,7 @@
             // line
             // 
             this.line.AutoSize = true;
-            this.line.Location = new System.Drawing.Point(404, 21);
+            this.line.Location = new System.Drawing.Point(324, 9);
             this.line.Name = "line";
             this.line.Size = new System.Drawing.Size(59, 22);
             this.line.TabIndex = 3;
@@ -90,7 +94,7 @@
             // square
             // 
             this.square.AutoSize = true;
-            this.square.Location = new System.Drawing.Point(548, 21);
+            this.square.Location = new System.Drawing.Point(468, 9);
             this.square.Name = "square";
             this.square.Size = new System.Drawing.Size(78, 22);
             this.square.TabIndex = 4;
@@ -101,7 +105,7 @@
             // 
             // prebtn
             // 
-            this.prebtn.Location = new System.Drawing.Point(174, 12);
+            this.prebtn.Location = new System.Drawing.Point(162, 0);
             this.prebtn.Name = "prebtn";
             this.prebtn.Size = new System.Drawing.Size(75, 40);
             this.prebtn.TabIndex = 5;
@@ -111,7 +115,7 @@
             // 
             // nexbtn
             // 
-            this.nexbtn.Location = new System.Drawing.Point(255, 12);
+            this.nexbtn.Location = new System.Drawing.Point(243, 0);
             this.nexbtn.Name = "nexbtn";
             this.nexbtn.Size = new System.Drawing.Size(75, 40);
             this.nexbtn.TabIndex = 6;
@@ -121,7 +125,7 @@
             // 
             // openbtn
             // 
-            this.openbtn.Location = new System.Drawing.Point(93, 12);
+            this.openbtn.Location = new System.Drawing.Point(81, 0);
             this.openbtn.Name = "openbtn";
             this.openbtn.Size = new System.Drawing.Size(75, 40);
             this.openbtn.TabIndex = 7;
@@ -129,24 +133,44 @@
             this.openbtn.UseVisualStyleBackColor = true;
             this.openbtn.Click += new System.EventHandler(this.Open_Click);
             // 
-            // Form1
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.square);
+            this.panel1.Controls.Add(this.Save);
+            this.panel1.Controls.Add(this.openbtn);
+            this.panel1.Controls.Add(this.circle);
+            this.panel1.Controls.Add(this.line);
+            this.panel1.Controls.Add(this.nexbtn);
+            this.panel1.Controls.Add(this.prebtn);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1038, 45);
+            this.panel1.TabIndex = 8;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(552, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 831);
-            this.Controls.Add(this.openbtn);
-            this.Controls.Add(this.nexbtn);
-            this.Controls.Add(this.prebtn);
-            this.Controls.Add(this.square);
-            this.Controls.Add(this.line);
-            this.Controls.Add(this.circle);
-            this.Controls.Add(this.Save);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "Mainform";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -160,6 +184,8 @@
         private System.Windows.Forms.Button prebtn;
         private System.Windows.Forms.Button nexbtn;
         private System.Windows.Forms.Button openbtn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
