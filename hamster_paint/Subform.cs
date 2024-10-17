@@ -9,48 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenCvSharp.Extensions;
 using OpenCvSharp;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace hamster_paint
 {
-    public partial class Form2 : Form
+    public partial class Subform : Form
     {
-        public ColorData Data { get; set;}
-        public Form2()
+        public Subform()
         {
             InitializeComponent();
-            pictureBox1.Image = BitmapConverter.ToBitmap(new Mat(new OpenCvSharp.Size(pictureBox1.Width, pictureBox1.Height), MatType.CV_8UC3, Scalar.FromRgb(255, 255, 255)));
-            Data = new ColorData(0, 0, 0);
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            TrackBar bar = (TrackBar)sender;
-            switch (bar.Name)
-            {
-                case "R":
-                    Data.R = bar.Value;
-                    break;
-                case "G":
-                    Data.G = bar.Value;
-                    break;
-                case "B":
-                    Data.B = bar.Value;
-                    break;
-                default:
-                    Data.A = bar.Value;
-                    break;
-            }
-            Console.WriteLine(Data.R + " " + Data.G + " " + Data.B);
-            pictureBox1.Image = BitmapConverter.ToBitmap(new Mat(new OpenCvSharp.Size(pictureBox1.Width, pictureBox1.Height), MatType.CV_8UC3, Scalar.FromRgb(Data.R, Data.G, Data.B)));
         }
         private void buttonSelectColor_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((int)e.KeyChar < 48 | (int)e.KeyChar > 57) & (int)e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

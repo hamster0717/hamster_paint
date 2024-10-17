@@ -1,6 +1,6 @@
 ﻿namespace hamster_paint
 {
-    partial class Form2
+    partial class Subform
     {
         /// <summary>
         /// Required designer variable.
@@ -28,93 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.R = new System.Windows.Forms.TrackBar();
-            this.G = new System.Windows.Forms.TrackBar();
-            this.B = new System.Windows.Forms.TrackBar();
-            this.A = new System.Windows.Forms.TrackBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.R)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.G)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.B)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.A)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // R
+            // textBox1
             // 
-            this.R.Location = new System.Drawing.Point(12, 12);
-            this.R.Maximum = 255;
-            this.R.Name = "R";
-            this.R.Size = new System.Drawing.Size(481, 69);
-            this.R.TabIndex = 0;
-            this.R.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.textBox1.Location = new System.Drawing.Point(104, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 29);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // G
+            // textBox2
             // 
-            this.G.Location = new System.Drawing.Point(12, 87);
-            this.G.Maximum = 255;
-            this.G.Name = "G";
-            this.G.Size = new System.Drawing.Size(481, 69);
-            this.G.TabIndex = 1;
-            this.G.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.textBox2.Location = new System.Drawing.Point(104, 86);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 29);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // B
+            // label1
             // 
-            this.B.Location = new System.Drawing.Point(12, 162);
-            this.B.Maximum = 255;
-            this.B.Name = "B";
-            this.B.Size = new System.Drawing.Size(481, 69);
-            this.B.TabIndex = 2;
-            this.B.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(37, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "長度";
             // 
-            // A
+            // label2
             // 
-            this.A.Location = new System.Drawing.Point(12, 242);
-            this.A.Maximum = 255;
-            this.A.Name = "A";
-            this.A.Size = new System.Drawing.Size(481, 69);
-            this.A.TabIndex = 3;
-            this.A.Visible = false;
-            this.A.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(37, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "高度";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(629, 270);
+            this.button1.Location = new System.Drawing.Point(104, 177);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 41);
+            this.button1.Size = new System.Drawing.Size(100, 45);
             this.button1.TabIndex = 4;
-            this.button1.Text = "選擇";
+            this.button1.Text = "確認";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.buttonSelectColor_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(604, 87);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Form2
+            // Subform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 323);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(388, 323);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.A);
-            this.Controls.Add(this.B);
-            this.Controls.Add(this.G);
-            this.Controls.Add(this.R);
-            this.Name = "Form2";
-            this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.R)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.G)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.B)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.A)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Name = "Subform";
+            this.Text = "Subform";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,11 +98,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TrackBar R;
-        private System.Windows.Forms.TrackBar G;
-        private System.Windows.Forms.TrackBar B;
-        private System.Windows.Forms.TrackBar A;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -1,4 +1,5 @@
-﻿namespace hamster_paint
+﻿
+namespace hamster_paint
 {
     partial class Mainform
     {
@@ -37,7 +38,9 @@
             this.nexbtn = new System.Windows.Forms.Button();
             this.openbtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.str_line = new System.Windows.Forms.RadioButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.newbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -55,7 +58,7 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
-            this.pictureBox1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseWheel);
+            this.pictureBox1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseWheeltest);
             // 
             // Save
             // 
@@ -70,7 +73,7 @@
             // circle
             // 
             this.circle.AutoSize = true;
-            this.circle.Location = new System.Drawing.Point(389, 9);
+            this.circle.Location = new System.Drawing.Point(519, 9);
             this.circle.Name = "circle";
             this.circle.Size = new System.Drawing.Size(73, 22);
             this.circle.TabIndex = 2;
@@ -82,7 +85,7 @@
             // line
             // 
             this.line.AutoSize = true;
-            this.line.Location = new System.Drawing.Point(324, 9);
+            this.line.Location = new System.Drawing.Point(454, 9);
             this.line.Name = "line";
             this.line.Size = new System.Drawing.Size(59, 22);
             this.line.TabIndex = 3;
@@ -94,7 +97,7 @@
             // square
             // 
             this.square.AutoSize = true;
-            this.square.Location = new System.Drawing.Point(468, 9);
+            this.square.Location = new System.Drawing.Point(598, 9);
             this.square.Name = "square";
             this.square.Size = new System.Drawing.Size(78, 22);
             this.square.TabIndex = 4;
@@ -105,7 +108,7 @@
             // 
             // prebtn
             // 
-            this.prebtn.Location = new System.Drawing.Point(162, 0);
+            this.prebtn.Location = new System.Drawing.Point(292, 0);
             this.prebtn.Name = "prebtn";
             this.prebtn.Size = new System.Drawing.Size(75, 40);
             this.prebtn.TabIndex = 5;
@@ -115,7 +118,7 @@
             // 
             // nexbtn
             // 
-            this.nexbtn.Location = new System.Drawing.Point(243, 0);
+            this.nexbtn.Location = new System.Drawing.Point(373, 0);
             this.nexbtn.Name = "nexbtn";
             this.nexbtn.Size = new System.Drawing.Size(75, 40);
             this.nexbtn.TabIndex = 6;
@@ -135,6 +138,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.newbtn);
+            this.panel1.Controls.Add(this.str_line);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.square);
             this.panel1.Controls.Add(this.Save);
@@ -148,14 +153,36 @@
             this.panel1.Size = new System.Drawing.Size(1038, 45);
             this.panel1.TabIndex = 8;
             // 
+            // str_line
+            // 
+            this.str_line.AutoSize = true;
+            this.str_line.Location = new System.Drawing.Point(672, 9);
+            this.str_line.Name = "str_line";
+            this.str_line.Size = new System.Drawing.Size(85, 22);
+            this.str_line.TabIndex = 9;
+            this.str_line.TabStop = true;
+            this.str_line.Text = "str_line";
+            this.str_line.UseVisualStyleBackColor = true;
+            this.str_line.CheckedChanged += new System.EventHandler(this.TypeChange);
+            // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(552, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(799, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(45, 45);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // newbtn
+            // 
+            this.newbtn.Location = new System.Drawing.Point(162, 0);
+            this.newbtn.Name = "newbtn";
+            this.newbtn.Size = new System.Drawing.Size(75, 40);
+            this.newbtn.TabIndex = 10;
+            this.newbtn.Text = "新增";
+            this.newbtn.UseVisualStyleBackColor = true;
+            this.newbtn.Click += new System.EventHandler(this.newbtn_Click);
             // 
             // Mainform
             // 
@@ -186,6 +213,8 @@
         private System.Windows.Forms.Button openbtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.RadioButton str_line;
+        private System.Windows.Forms.Button newbtn;
     }
 }
 
