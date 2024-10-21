@@ -20,7 +20,6 @@ namespace hamster_paint
     public partial class Mainform : Form
     {
         private double ratio = 1;
-        
         private System.Drawing.Size pic_size;
         private Stack<Mat> pre = new Stack<Mat>();
         private Stack<Mat> nex = new Stack<Mat>();
@@ -110,7 +109,7 @@ namespace hamster_paint
                             DrawEllipse(tempCanvas, startPoint, currentPoint, holdshift);
                             break;
                         case 2:
-                            DrawRectangle(tempCanvas, startPoint, currentPoint);
+                            DrawRectangle(tempCanvas, startPoint, currentPoint, holdshift);
                             break;
                         case 3:
                             Cv2.Line(tempCanvas, startPoint, currentPoint, MyScalar, 2);
@@ -154,7 +153,7 @@ namespace hamster_paint
                         DrawEllipse(canvas, startPoint, currentPoint, holdshift);
                         break;
                     case 2:
-                        DrawRectangle(canvas, startPoint, currentPoint);
+                        DrawRectangle(canvas, startPoint, currentPoint, holdshift);
                         break;
                     case 3:
                         DrawStrline(canvas, startPoint, currentPoint, holdshift);
@@ -237,9 +236,33 @@ namespace hamster_paint
             }
 
         }
-        private void DrawRectangle(Mat img, OpenCvSharp.Point start, OpenCvSharp.Point end)
+        private void DrawRectangle(Mat img, OpenCvSharp.Point start, OpenCvSharp.Point end, bool holdshift)
         {
+            int stx=start.X, sty=start.Y;
+            int edx = start.Y, edy = start.Y;
+            int axisX = Math.Abs(stx - edx) / 2;
+            int axisY = Math.Abs(sty - edy) / 2;
+            int min_val = Math.Min(axisX, axisY);
+            if(stx < edx)
+            {
+                edx = stx + min_val;
+            }
+            else
+            {
+                edx = stx - min_val;
+            }
+            if (sty < edy)
+            {
+                edy = sty + min_val;
+            }
+            else
+            {
+                edy = sty - min_val;
+            }
+            if (!holdshift)
+                Cv2.Rectangle(img, new OpenCvSharp.Point(stx,sty), new OpenCvSharp.Point(edx, edy), MyScalar, 2, LineTypes.Link8, 0);
             Cv2.Rectangle(img, start, end, MyScalar, 2, LineTypes.Link8, 0);
+
         }
         private readonly Dictionary<String, int> TypeToInt = new Dictionary<String, int>
         {
